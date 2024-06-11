@@ -2,7 +2,6 @@ package exemplo.afinador;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Random;
 
 public abstract class Instrumento {
@@ -13,19 +12,9 @@ public abstract class Instrumento {
         this.nome = nome;
     }
 
-    public Som toca(Nota n) {
-        return new Som(this, n);
-    }
+    abstract public Som toca(Nota n);
 
-    public List<Som> toca(int numNotas) {
-        List<Som> sons = new ArrayList<>();
-        Random rand = new Random();
-        for(int i = 0; i < numNotas; i++) {
-            int nota = rand.nextInt(Nota.values().length);
-            sons.add(new Som(this, Nota.values()[nota]));
-        }
-        return sons;
-    }
+    abstract public List<Som> toca(int numNotas);
 
     public String getNome() {
         return nome;

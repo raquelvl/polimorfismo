@@ -2,28 +2,14 @@ package exemplo.afinador;
 
 import java.util.Scanner;
 
-public class AfinadorTipado {
-
-    public String afina(Piano p) {
-        int numeroDeNotas = 10;
+public class Afinador {
+    public String afina(Instrumento i, int numeroDeNotas) {
 // ...
-        return p.toca(numeroDeNotas) + " " + p.getNome() + " afinado!";
-    }
-
-    public String afina(Sax s) {
-        int numeroDeNotas = 12;
-// ...
-        return s.toca(numeroDeNotas) + " " + s.getNome() + " afinado!";
-    }
-
-    public String afina(Baixo b) {
-        int numeroDeNotas = 20;
-// ...
-        return b.toca(numeroDeNotas) + " " + b.getNome() + " afinado!";
+        return i.toca(numeroDeNotas) + " " + i.getNome() + " afinado!";
     }
 
     public static void main(String[] args) {
-        AfinadorTipado afinador = new AfinadorTipado();
+        Afinador afinador = new Afinador();
         Scanner sc = new Scanner(System.in);
         int escolha = 0;
         do {
@@ -32,15 +18,15 @@ public class AfinadorTipado {
             switch (escolha) {
                 case 1:
                     Piano piano = new Piano(Piano.NOME);
-                    System.out.println(afinador.afina(piano));
+                    System.out.println(afinador.afina(piano, 10));
                     break;
                 case 2:
                     Sax sax = new Sax(Sax.NOME);
-                    System.out.println(afinador.afina(sax));
+                    System.out.println(afinador.afina(sax, 20));
                     break;
                 case 3:
                     Baixo baixo = new Baixo(Baixo.NOME);
-                    System.out.println(afinador.afina(baixo));
+                    System.out.println(afinador.afina(baixo, 12));
                     break;
             }
         } while (escolha < 4 && escolha > 0);
